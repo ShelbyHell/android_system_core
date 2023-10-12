@@ -109,6 +109,7 @@ bool SaveMetadata(MetadataBuilder* builder, const std::string& metadata_dir) {
     if (exported->partitions.empty() && android::base::RemoveFileIfExists(metadata_file)) {
         return true;
     }
+
     if (!WriteToImageFile(metadata_file, *exported.get())) {
         LOG(ERROR) << "Unable to save new metadata";
         return false;
